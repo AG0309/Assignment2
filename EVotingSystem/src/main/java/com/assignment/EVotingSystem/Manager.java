@@ -1,22 +1,22 @@
 package com.assignment.EVotingSystem;
 
-public class Manager {
+import java.util.List;
+
+public class Manager extends User {
 	//Attributes
-	//Constructors
-	//Methods
+	private String password;
+	private List<String> candidates;
 	
+	//Methods	
+	public void openSession() {
+		
+	}
 	
-	//MAIN TEST
-	public static void main(String[] args) {
-		Voter a = new Voter("AY5678");
+	public void startCountingPhase() {
 		
-		System.out.println(a.canVote());
-		a.vote();
-		System.out.println(a.canVote());
+	}
+	
+	public void viewResults() {
 		
-		Voter b = new Voter("AY5878");
-		
-		b.vote();
-		System.out.println(b.canVote());
 	}
 }

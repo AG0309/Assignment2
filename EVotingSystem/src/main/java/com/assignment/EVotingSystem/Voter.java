@@ -1,32 +1,29 @@
 package com.assignment.EVotingSystem;
 
-public class Voter extends Manager {
+import java.time.LocalDate;
+import java.time.Period;
+
+public class Voter extends User {
 	//Attributes
-	private String ID;
 	private boolean voted;
 	
 	//Constructors
-	public Voter(String ID) {
-		this.setID(ID);
+	public Voter(String name, String surname, String id, LocalDate birth) {
+		super.setName(name);
+		super.setSurname(surname);
+		super.setID(id);
+		super.setBirth(birth);
 		voted = false;
 	}
 	
 	//Methods
-	private String getID() {
-		return ID;
-	}
-	
-	private void setID(String ID) {
-		this.ID = ID;
-	}
-	
-	public boolean validID() {
-		ID = getID();
-		return true;
+	public int getAge() {
+		LocalDate currentDate = LocalDate.now();
+		return Period.between(birth, currentDate).getYears();
 	}
 	
 	public boolean canVote() {
-		if (!(voted) && validID())
+		if (!(voted) && getAge() >= 18)
 			return true;
 		return false;
 	}
